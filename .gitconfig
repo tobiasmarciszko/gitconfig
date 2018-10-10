@@ -1,0 +1,31 @@
+[user]
+        name = My Name
+        email = my.email@dot.com
+
+[alias]
+ st = !git branch &&  git status && echo "" && echo "Commit diff between local and remote:" && echo "=" && git lgd && echo "="
+ lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold yellow)<%an>%Creset' --abbrev-commit
+ lgb = log --all --decorate --oneline --graph --simplify-by-decoration
+
+ # Shows diffing commits between local and remote branch (to see what commits exists on the remote branch before pulling)
+ lgd = log @{u}...HEAD --graph --decorate --left-right --boundary --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative
+
+ co = checkout
+ rb = rebase
+ dt = difftool
+ mt = mergetool
+ up = pull --rebase
+ cp = cherry-pick
+ ci = commit -a
+ uncommit = reset --soft HEAD^
+ hr = reset --hard HEAD^
+ sr = reset --soft HEAD^
+
+[push]
+        default = current
+[core]
+        editor = emacs
+[difftool]
+        prompt = false
+[mergetool]
+        prompt = false
